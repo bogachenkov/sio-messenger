@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const io = require('socket.io');
@@ -31,8 +32,20 @@ const chats = require('./routes/api/chats');
 app.use('/api/auth', auth);
 app.use('/api/chats', chats);
 
-server.listen(5000, () => {
-  console.log('Listening on *:5000');
+// Server static assetes if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
+
+let port = process.env.PORT || 5000;
+
+server.listen(port, () => {
+  console.log(`Server running on port: ${port}`);
 });
 
 const cio = socketIo.of('/chat');
@@ -83,7 +96,7 @@ cio.on('connection', socket => {
   socket.on('disconnect', () => {
     helpers.deleteSocket(s_user_id); 
   });
-})
+});
 
 // Sockets for chat list namespace
 clio.on('connection', socket => {
