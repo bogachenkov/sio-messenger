@@ -12,7 +12,7 @@ import Spinner from './Spinner';
 class Chat extends Component {
 
   componentWillMount() {
-    this.socket = io('http://localhost/chat', {
+    this.socket = io('https://sio-messenger.herokuapp.com/chat', {
       query: {
         user_id: this.props.user._id,
         room: this.props.chat_id

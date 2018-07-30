@@ -12,7 +12,7 @@ class ChatList extends React.Component {
   componentWillMount() {
     console.log('Chatlist loading');
     this.props.loadChats(this.props.user._id);
-    this.socket = io('http://localhost/chatlist', {
+    this.socket = io('https://sio-messenger.herokuapp.com/chatlist', {
       query: {
         user_id: this.props.user._id
       }
