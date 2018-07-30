@@ -1,0 +1,34 @@
+.Input {
+  background-color: #fafafa;
+  height: 6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  display: flex;
+  border-top: 1px solid #eee;
+
+  input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0 1em;
+    font-size: 1.4rem;
+    border-radius: 4px;
+
+    span.emoji {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-size: contain;
+      margin: 0 .5em;
+    }
+  }
+
+  &__smiles {
+    cursor: pointer;
+    position: absolute;
+    top: 19px;
+    right: 19px;
+  }
+}

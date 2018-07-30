@@ -1,0 +1,57 @@
+.Message {
+  background-color: #E3F2FD;
+  padding: 1em;
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 5px;
+  color: #000;
+  max-width: 60%;
+  position: relative;
+
+  .emoji-mart-emoji {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 .5em;
+  }
+
+  &:not(.user) {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -9px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 12px 12px 0;
+      border-color: transparent #E3F2FD transparent transparent;
+    }
+  }
+
+  &.user {
+    background-color: #1E88E5;
+    color: #ffffff;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: -9px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 0 0 12px;
+      border-color: transparent transparent transparent #1e88e5;
+    }
+  }
+  
+
+  &__wrapper {
+    &.user {
+      text-align: right;
+    }
+  }
+}

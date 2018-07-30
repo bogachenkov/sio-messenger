@@ -1,0 +1,102 @@
+$width: 540px;
+$cells: 12;
+$gutter: 15px;
+
+$breakpoints: (
+        "phone":        25em,
+        "tablet":       48em,
+        "laptop":       64em,
+        "desktop":      90em,
+        "4k":           160em
+);
+
+@mixin minq($width) {
+  $width: map_get($breakpoints, $width);
+  @media screen and (min-width: $width){
+    @content;
+  }
+}
+
+@mixin cell($i) {
+  box-sizing: border-box;
+  flex: 0 0 percentage($i/$cells);
+  max-width: percentage($i/$cells);
+  padding: 0 $gutter;
+}
+
+.container {
+  max-width: $width;
+  padding: 0 15px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-flow: wrap;
+  box-sizing: border-box;
+
+  &-between {
+    justify-content: space-between;
+  }
+  &-around {
+    justify-content: space-around;
+  }
+  &-center {
+    justify-content: center;
+}
+}
+
+@for $i from 1 through 12 {
+  .cell-#{$i} {
+    @include cell($i)
+  }
+
+  .cell-tab-#{$i} {
+    flex-basis: 100%;
+
+    @include minq('tablet') {
+      @include cell($i)
+    }
+  }
+
+  .cell-lap-#{$i} {
+    flex-basis: 100%;
+
+    @include minq('laptop') {
+      @include cell($i)
+    }
+  }
+
+  .cell-desk-#{$i} {
+    flex-basis: 100%;
+
+    @include minq('desktop') {
+      @include cell($i)
+    }
+  }
+
+  .cell-4k-#{$i} {
+    flex-basis: 100%;
+
+    @include minq('4k') {
+      @include cell($i)
+    }
+  }
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.no-gutter {
+  padding: 0;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}

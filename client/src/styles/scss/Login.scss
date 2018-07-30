@@ -1,0 +1,47 @@
+.Login {
+  height: 100%;
+  padding: 0 5em;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  h3 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0 0 2em 0;
+  }
+
+  input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1em;
+    margin: 1em 0;
+
+    &[type="submit"] {
+      background-color: #1E88E5;
+      color: #ffffff;
+      font-weight: bold;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(30, 136, 229, 0.76);
+      }
+    }
+  }
+
+  &__errors {
+    border: 1px solid darkred;
+    border-radius: 3px;
+    background-color: rgba(255,0,0, .1);
+    font-size: 1.4rem;
+    padding: 1em;
+    margin-top: 2em;
+    color: darkred;
+
+    li {
+      margin-left: 2em;
+    }
+  }
+}
