@@ -26,9 +26,13 @@ $breakpoints: (
 
 .container {
   max-width: $width;
-  padding: 0 15px;
+  padding: 0;
   box-sizing: border-box;
   margin: 0 auto;
+
+  @include minq('tablet') {
+    padding: 0 15px;
+  }
 }
 
 .row {

@@ -1,8 +1,11 @@
 .container {
   max-width: 540px;
-  padding: 0 15px;
+  padding: 0;
   box-sizing: border-box;
   margin: 0 auto; }
+  @media screen and (min-width: 48em) {
+    .container {
+      padding: 0 15px; } }
 
 .row {
   display: flex;
