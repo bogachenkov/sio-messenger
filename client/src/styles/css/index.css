@@ -535,14 +535,18 @@
   text-align: right; }
 
 .App {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
   color: #aaa;
-  margin: 10vh 0;
-  height: 80vh;
+  margin: 0;
+  height: 100vh;
   background: #ffffff;
   border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #eeeeee; }
+  overflow: hidden; }
+  @media screen and (min-width: 48em) {
+    .App {
+      margin: 10vh 0;
+      height: 80vh;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+      border: 1px solid #eeeeee; } }
 
 .Chat {
   height: 100%;
@@ -855,8 +859,11 @@
     height: 5em; } }
 body {
   margin: 0;
-  background-color: #E3F2FD;
+  background-color: #ffffff;
   font-family: 'Roboto', sans-serif; }
+  @media screen and (min-width: 48em) {
+    body {
+      background-color: #E3F2FD; } }
 
 html {
   font-size: 10px; }

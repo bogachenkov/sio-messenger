@@ -19,8 +19,6 @@ const helpers = require('./helpers');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-console.log(`MongoURI: ${dbconfig.mongoURI}`);
-
 mongoose.connect(dbconfig.mongoURI)
   .then(() => console.log('Соединение с базой данных установлено'))
   .catch(err => console.error(`Ошибка подключения к базе данных: ${err}`))

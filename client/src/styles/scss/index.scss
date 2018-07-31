@@ -13,8 +13,12 @@
 
 body {
   margin: 0;
-  background-color: #E3F2FD;
+  background-color: #ffffff;
   font-family: 'Roboto', sans-serif;
+
+  @include minq('tablet') {
+    background-color: #E3F2FD;
+  }
 }
 
 html {
